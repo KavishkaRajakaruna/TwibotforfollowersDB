@@ -2,7 +2,6 @@ import tweepy
 import time
 import mysql.connector
 
-
 CONSUMER_KEY=''
 CONSUMER_SECRET = ''
 ACCESS_KEY = ''
