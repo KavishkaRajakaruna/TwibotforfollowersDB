@@ -36,13 +36,19 @@ def usrwtxt():
 
 		for timeline in timelines:
 			#print(timeline.text+ '    -    ' + timeline.user.name)
-			val=(timeline.user.id,timeline.user.name)
-			print(val)
-			try:
-				mycursor.execute(sql,val)
-				db.commit()
-			except Exception:
-				print("database push error")
+			mycursor.execute("select UID from users where UID="+str(timeline.user.id))
+			mycursor.fetchone()
+
+			if cursor.rowcount ==1:
+				continue
+			else:
+				val=(timeline.user.id,timeline.user.name)
+				print(val)
+				try:
+					mycursor.execute(sql,val)
+					db.commit()
+				except Exception:
+					print("database push error")
 
 
 while True:
